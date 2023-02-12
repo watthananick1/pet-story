@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "pet-story-f51e3",
+    "pet-story": "pet-story-f51e3"
+  },
+  "targets": {},
+  "etags": {}
+}
