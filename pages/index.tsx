@@ -4,8 +4,6 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Login from './login';
 import path from 'path';
-import LoginGoogle from "./login_Google"
-import LoginFacebook from "./login_Facebook"
 export default function Home() {
   return (
     <>
@@ -19,9 +17,6 @@ export default function Home() {
           <div >
             <h1 className="text-center items-center">Please sign in to continue</h1>
             <Login />
-            <LoginGoogle />
-            <p>and</p>
-            <LoginFacebook />
           </div>
         </div>
     </>

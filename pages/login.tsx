@@ -3,6 +3,9 @@ import { FormProvider, useForm } from "react-hook-form";
 import firebase from "../firebase/clientApp";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Link from "next/link";
+import LoginGoogle from "./login_Google"
+import LoginFacebook from "./login_Facebook"
+
 interface LoginType {
   email: string;
   password: string;
@@ -81,6 +84,9 @@ const LoginPage = () => {
               <p className="capitalize text-white font-normal">submit</p>
             </button>
             <p>OR</p>
+            {/* < LoginGoogle />
+            <p>and</p>
+            < LoginFacebook /> */}
             
           </div>
         </form>

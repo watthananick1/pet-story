@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useFirebaseApp } from "reactfire";
 import firebase from "../firebase/clientApp";
 import { FacebookAuthProvider } from "firebase/auth";
+import  StyledFirebaseAuth  from "react-firebaseui/StyledFirebaseAuth";
 const LoginPage: React.FC = () => {
   //const firebase = useFirebaseApp();
   const [error, setError] = useState("");
