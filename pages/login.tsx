@@ -1,16 +1,21 @@
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import firebase from "../firebase/clientApp";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import Link from "next/link";
-import LoginGoogle from "./login_Google"
-import LoginFacebook from "./login_Facebook"
+import { useRouter } from 'next/router'
+import { useAuth } from "../Context/Authcontext";
+
+
+
+
 
 interface LoginType {
   email: string;
   password: string;
 }
 const LoginPage = () => {
+  const {logIn} = useAuth();
+  const router = useRouter();
   const methods = useForm<LoginType>({ mode: "onBlur" });
 
   const {
@@ -21,32 +26,24 @@ const LoginPage = () => {
 
   const onSubmit = async (data: LoginType) => {
     console.log(data);
-    firebase.auth().signInWithEmailAndPassword(data.email, data.password)
-  .then((userCredential) => {
-    // Signed in
-    var user = userCredential.user;
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        let uid = user.uid;
-        console.log(uid);
-      } else {
-        // User is signed out
-        // ...
-      }
-    });
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
-  };
+    try {
+      await logIn(data.email, data.password);
+      router.push("/dashboard");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  }
   return (
     <div className="sign-up-form container mx-auto w-96 mt-12 border-2 border-gray-400">
-      <h2 className="px-12 mt-8 text-center text-2xl font-semibold text-blue-900">Log In</h2>
+      <h2 className="px-12 mt-8 text-center text-2xl font-semibold text-blue-900">
+        Log In
+      </h2>
       <FormProvider {...methods}>
-        <form action="" className="w-80 mx-auto pb-12 px-4" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          action=""
+          className="w-80 mx-auto pb-12 px-4"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="mt-8">
             <div className="flex items-center justify-between">
               <label htmlFor="" className="block mb-3 font-sans text-blue-900">
@@ -59,7 +56,9 @@ const LoginPage = () => {
               {...register("email", { required: "Email is required" })}
               className={`border border-solid rounded-lg ring:0 focus:ring-0 focus:outline-none border-gray-400 text-gray-500 text-normal py-3 h-12 px-6 text-lg w-full flex items-center`}
             />
-            {errors.email && <p className="text-red-400">{errors.email.message}</p>}
+            {errors.email && (
+              <p className="text-red-400">{errors.email.message}</p>
+            )}
           </div>
           <div className="mt-8">
             <div className="flex items-center justify-between">
@@ -73,7 +72,9 @@ const LoginPage = () => {
               {...register("password", { required: "Password is required" })}
               className={`border border-solid rounded-lg ring:0 focus:ring-0 focus:outline-none border-gray-400 text-gray-500 text-normal py-3 h-12 px-6 text-lg w-full flex items-center`}
             />
-            {errors.password && <p className="text-red-400">{errors.password.message}</p>}
+            {errors.password && (
+              <p className="text-red-400">{errors.password.message}</p>
+            )}
           </div>
 
           <div className="flex justify-center pt-8">
@@ -84,10 +85,7 @@ const LoginPage = () => {
               <p className="capitalize text-white font-normal">submit</p>
             </button>
             <p>OR</p>
-            {/* < LoginGoogle />
-            <p>and</p>
-            < LoginFacebook /> */}
-            
+            {/* < LoginGoogle /> */}
           </div>
         </form>
       </FormProvider>

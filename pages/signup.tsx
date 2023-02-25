@@ -1,5 +1,8 @@
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { useRouter } from 'next/router'
+import { useAuth } from "../Context/Authcontext";
+
 
 interface SignupType {
   email: string;
@@ -7,6 +10,8 @@ interface SignupType {
   password_confirm: string;
 }
 const SignupPage = () => {
+  const { signUp } = useAuth();
+  const router = useRouter();
   const methods = useForm<SignupType>({ mode: "onBlur" });
 
   const {
@@ -17,6 +22,13 @@ const SignupPage = () => {
 
   const onSubmit = async (data: SignupType) => {
     console.log(data);
+    try {
+      await signUp(data.email, data.password);
+      //router.push("/dashboard");
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  
   };
 
   return (

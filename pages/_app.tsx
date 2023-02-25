@@ -1,4 +1,5 @@
 import 'styles/globals.css';
+import React, {} from 'react';
 import type { AppProps } from "next/app";
 import Navbar from "../components/navbar";
 import { AuthContextProvider } from "../Context/Authcontext";

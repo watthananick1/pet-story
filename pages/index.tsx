@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import Login from './login';
-import path from 'path';
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "@/styles/Home.module.css";
+import Login from "./login";
+import path from "path";
 export default function Home() {
   return (
     <>
@@ -13,12 +13,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <div className="text-center flex flex-col gap-4 items-center">
-          <div >
-            <h1 className="text-center items-center">Please sign in to continue</h1>
-            <Login />
-          </div>
+      <div className="text-center flex flex-col gap-4 items-center">
+        <div>
+          <h1 className="text-center items-center">
+            Please sign in to continue
+          </h1>
+          <Login />
         </div>
+      </div>
     </>
   );
 }
