@@ -12,23 +12,32 @@
     "deploy": "firebase deploy --only functions:nextjs,hosting"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.12",
+    "@heroicons/react": "^2.0.16",
     "@next/font": "13.1.6",
+    "bootstrap": "^5.3.0-alpha1",
     "firebase": "^9.17.1",
     "firebase-admin": "^11.5.0",
     "firebase-functions": "^4.2.1",
     "firebaseui": "^6.0.2",
     "next": "^13.2.1",
     "react": "18.2.0",
+    "react-bootstrap": "^2.7.2",
     "react-dom": "18.2.0",
     "react-firebase-hooks": "^5.1.1",
     "react-firebaseui": "^6.0.0",
     "react-hook-form": "^7.43.1",
-    "reactfire": "^4.2.2"
+    "react-quill": "^2.0.0",
+    "reactfire": "^4.2.2",
+    "sass": "^1.58.3"
   },
   "devDependencies": {
     "@types/react": "18.0.28",
+    "autoprefixer": "^10.4.13",
     "firebase-functions-test": "^3.0.0",
+    "postcss": "^8.4.21",
     "rimraf": "^4.1.2",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "tailwindcss": "^3.2.7"
   }
 }

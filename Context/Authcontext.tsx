@@ -1,9 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import {onAuthStateChanged,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut, getAuth} from "firebase/auth";
-import firebase from "../firebase/clientApp";
+import {onAuthStateChanged,
+createUserWithEmailAndPassword,
+signInWithEmailAndPassword,
+signInWithPopup,
+signOut, 
+getAuth} from "firebase/auth";
+import {app} from "../firebase/clientApp";
 
 
-const auth = getAuth(firebase);
+const auth = getAuth(app);
 interface UserType {
   email: string | null;
   uid: string | null;
@@ -41,6 +46,11 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
     console.log(1);
     return signInWithEmailAndPassword(auth, email, password);
   };
+  
+  const logInGoogle = (provider:any) => {
+    console.log(2);
+    return signInWithPopup(auth, provider);
+  };
 
   const logOut = async () => {
     setUser({ email: null, uid: null });
@@ -48,7 +58,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
   };
 
   return (
-    <AuthContext.Provider value={{ user, signUp, logIn, logOut }}>
+    <AuthContext.Provider value={{ user, signUp, logIn, logInGoogle, logOut }}>
       {loading ? null : children}
     </AuthContext.Provider>
   );
