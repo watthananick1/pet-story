@@ -3,6 +3,14 @@
     "default": "pet-story-f51e3",
     "pet-story": "pet-story-f51e3"
   },
-  "targets": {},
+  "targets": {
+    "pet-story-f51e3": {
+      "hosting": {
+        "pet-story-f51e3": [
+          "pet-story-f51e3"
+        ]
+      }
+    }
+  },
   "etags": {}
 }

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.css";
 import Card from "react-bootstrap/Card";
-import Navbar from "../components/navbar";
+import Navbar from "./navbar";
 import Layout from "../components/layout";
 import { Container } from "react-bootstrap";
 import PostList from "../components/postList";
@@ -16,7 +16,6 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-
         <div className="container">
           <Card>
             <Card.Body>
@@ -28,6 +27,7 @@ export default function Home() {
           </Card>
         </div>
       </Layout>
+      
     </>
   );
 }
