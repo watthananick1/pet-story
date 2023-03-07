@@ -1,7 +1,11 @@
 {
   "/_app": "pages/_app.js",
+  "/dashboard": "pages/dashboard.html",
+  "/login": "pages/login.html",
+  "/navbar": "pages/navbar.html",
+  "/signup": "pages/signup.html",
+  "/": "pages/index.html",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/login": "pages/login.js",
-  "/": "pages/index.js"
+  "/404": "pages/404.html"
 }
