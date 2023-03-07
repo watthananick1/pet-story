@@ -1,7 +1,7 @@
 import Head from "next/head";
 import "bootstrap/dist/css/bootstrap.css";
 import Card from "react-bootstrap/Card";
-import Navbar from "./navbar";
+import Navbar from "../components/navbar";
 import Layout from "../components/layout";
 import { Container } from "react-bootstrap";
 import PostList from "../components/postList";

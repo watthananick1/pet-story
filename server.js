@@ -20,4 +20,16 @@ const server = functions.https.onRequest((request, response) => {
   return app.prepare().then(() => handle(request, response));
 });
 
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+}
+
+module.exports = nextConfig
+
+// module.exports = {
+//   distDir: "nextjs",
+// };
+
+
 exports.nextjs = { server };
